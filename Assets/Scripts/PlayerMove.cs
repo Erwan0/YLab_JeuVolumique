@@ -11,6 +11,7 @@ public class PlayerMove : TacticsMove
 { 
     public GameObject Player;
     public Light Lumière;
+    public Camera Cam;
     public GameObject Clef;
     public GameObject FausseClef;
     public GameObject Tresor;
@@ -47,26 +48,7 @@ public class PlayerMove : TacticsMove
     void Start()
     {
         Init();
-
-        Player = GameObject.Find("Player");
-        Clef = GameObject.Find("Clef");
-        FausseClef = GameObject.Find("FausseClef");
-        Tresor = GameObject.Find("Tresor");
-        Trou = GameObject.Find("Trou");
-        Torche = GameObject.Find("Light");
-        Torche = GameObject.Find("Torche");
-        Pic1 = GameObject.Find("Pic1");
-        Pic2 = GameObject.Find("Pic2");
-        Pic3 = GameObject.Find("Pic3");
-        Soin = GameObject.Find("Soin");
-        Serpent = GameObject.Find("Serpent");
-        Tour = GameObject.Find("Tour").GetComponent<Text>();
         Evenements = GameObject.Find("Evenements").GetComponent<Text>();
-        Chrono = GameObject.Find("Chrono").GetComponent<Text>();
-        Coeur1 = GameObject.Find("Coeur1").GetComponent<Image>();
-        Coeur2 = GameObject.Find("Coeur2").GetComponent<Image>();
-        Coeur3 = GameObject.Find("Coeur3").GetComponent<Image>();
-        ImageClef = GameObject.Find("ImageClef").GetComponent<Image>();
 
         //Placer le joueur avec les données recup dans scène avant
         float x = PlayerPrefs.GetFloat("x");
@@ -161,8 +143,13 @@ public class PlayerMove : TacticsMove
     // Appelé toutes les secondes après le début
     void Update()
     {
-        //On check le temps d'affichage de l'event 
-        if (Evenements.GetComponent<Text>().text != "")
+        //Revenir en arrière avec la touche android
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Options", LoadSceneMode.Single);
+        }
+            //On check le temps d'affichage de l'event 
+            if (Evenements.GetComponent<Text>().text != "")
         {
             if(Tpevent+3==(int)time)
             { Evenements.color = new Color(255,222,0,255);Evenements.GetComponent<Text>().text = ""; }
@@ -190,10 +177,11 @@ public class PlayerMove : TacticsMove
         time += 1 * Time.deltaTime;
         Chrono.GetComponent<Text>().text = time.ToString("0");
 
-        //Deplace la lumière
+        //Deplace la lumière et la cam
         float x = Player.transform.position.x;
         float z = Player.transform.position.z;
         Lumière.transform.position = new Vector3(x, 8f, z);
+        Cam.transform.position = new Vector3(x, 8f, z);
 
         //Check poisson
         if (poison == true)

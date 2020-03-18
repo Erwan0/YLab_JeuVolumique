@@ -3435,7 +3435,7 @@ Transform:
   m_GameObject: {fileID: 932869523}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -3.71, y: -1.86, z: -1}
-  m_LocalScale: {x: 3, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -7994,6 +7994,7 @@ MonoBehaviour:
   actualTargetTile: {fileID: 0}
   Player: {fileID: 1772288386}
   "Lumi\xE8re": {fileID: 1148808953}
+  Cam: {fileID: 175718170}
   Clef: {fileID: 1675881287}
   FausseClef: {fileID: 1622910125}
   Tresor: {fileID: 2016227783}
@@ -8002,15 +8003,15 @@ MonoBehaviour:
   Pic1: {fileID: 1913720148}
   Pic2: {fileID: 2037100484}
   Pic3: {fileID: 692735962}
-  Soin: {fileID: 0}
+  Soin: {fileID: 1306608124}
   Serpent: {fileID: 1724165052}
-  Coeur1: {fileID: 0}
-  Coeur2: {fileID: 0}
-  Coeur3: {fileID: 0}
-  Chrono: {fileID: 0}
-  Tour: {fileID: 0}
+  Coeur1: {fileID: 1449920087}
+  Coeur2: {fileID: 1283890901}
+  Coeur3: {fileID: 842319}
+  Chrono: {fileID: 498397220}
+  Tour: {fileID: 837642038}
   Evenements: {fileID: 0}
-  ImageClef: {fileID: 0}
+  ImageClef: {fileID: 1755507091}
   time: 0
   Tpevent: 0
   Ntour: 1
